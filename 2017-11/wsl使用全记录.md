@@ -59,7 +59,7 @@ username ALL=(ALL) NOPASSWD:ALL
 - [Linux Bash on Win10 (WSL)在cmder下使用vim时方向键失灵问题解决](http://www.cnblogs.com/hujq1029/p/6549073.html)
 - [在ubuntu中安装与配置zsh与oh-my-zsh](http://www.jianshu.com/p/546effd99c35)
 - [解决Bash On Ubuntu On Window安装Zsh无效问题附安装说明](http://www.jianshu.com/p/9a575dda0eff)
-- [使用 Windows Subsystem for Linux 进行 Python 开发](https://juejin.im/entry/59352f62ac502e0068b12630)
+- [使用 Windows Subsystem for Linux 进行 Python 开发](https://blog.kdwycz.com/archives/%E4%BD%BF%E7%94%A8Windows%20Subsystem%20for%20Linux/)
 
 
 (完 2017年11月2日)
