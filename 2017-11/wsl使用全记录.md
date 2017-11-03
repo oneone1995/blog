@@ -55,6 +55,10 @@ username ALL=(ALL) NOPASSWD:ALL
 到这里应该就可以像任意linux发行版一样正常使用。像redis、mongo、nginx之类的服务都可以在wsl里面跑，我甚至有段时间直接用它作为ssh工具连接服务器。唯一不方便的地方是不能后台，一旦关闭cmder或者其它终端工具的窗口wsl便被关闭了。这里另一个曲线救国的方式是利用win10的多桌面，在另一个桌面开着cmder窗口，做一个假后台，但实际上如果强迫症没有特别严重也没什么必要。
 
 ---
+## 总结
+随着微软爸爸不停的更新，以及社区的活跃，wsl势必是会越来越好的，我室友刚开始使用的时候全是bug，等我使用的时候已经几乎没有什么特别严重的bug了。如果你遇到什么问题可以先查查应该已经有不少人在你之前踩过坑，知乎相关话题、Google、Baidu都能查到不少，也可以去github上提issue。
+
+---
 ## 参考
 - [Linux Bash on Win10 (WSL)在cmder下使用vim时方向键失灵问题解决](http://www.cnblogs.com/hujq1029/p/6549073.html)
 - [在ubuntu中安装与配置zsh与oh-my-zsh](http://www.jianshu.com/p/546effd99c35)
