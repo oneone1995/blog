@@ -64,7 +64,7 @@ public class Solution {
         ```
         执行完建堆步骤，如果对上面说的不理解的话可以手动一步步画一下。我们来看看```下沉```操作后的完全二叉树被调整成了什么样子:
         ![heap_order](assets/heap_order.png)
-        从图中我们可以看到经过我们的```下沉```步骤，这棵完全二叉树已经符合堆有序的定义了，即每一个节点都比它的两个子节点要小。那接下来的工作只剩下依次去除最小的k个数了。
+        从图中我们可以看到经过我们的```下沉```步骤，这棵完全二叉树已经符合堆有序的定义了，即每一个节点都比它的两个子节点要小。那接下来的工作只剩下依次取出最小的k个数了。
     - 对前k个数下沉排序
     
         说了这么多，我们还是没有说到怎么取出最小的k个数。但是我们已经构造出了一个小顶堆了，观察这个小顶堆你会发现最小的数在堆顶，因此我们将堆顶元素与堆底最后一个元素交换视为将最小的元素从堆中移除，同时因为这次交换操作导致堆有序状态被破坏，因此需要调用一次```sink```方法来调整堆。这里我们很容易想到因为最小的元素已经被我们从堆中移除，那么重新调整后的堆的堆顶元素便是原数组中第二小的数了。重复k次，每次调整都将从堆中移除的元素保存在容器中，便能得到符合题目要求的答案了。若k为数组长度便相当于对原数组进行了一次全排序。代码像下面这样:
@@ -119,14 +119,18 @@ public class Solution {
         ArrayList<Integer> result = new ArrayList<>();
         //建堆
         int n = input.length;
+        
+        //所求的前k个数大于数组长度直接返回空集合
         if (k > n) {
             return result;
         }
+
+        //将0 ~ n / 2 - 1位置上的元素按下沉方式建堆
         for (int i = n / 2 - 1; i >= 0; i--) {
             sink(input, i, n);
         }
 
-
+        //调整k次堆，分别将排序前k个数从堆中移除并加到容器ArrayList中
         for (int i = 0; i < k; i++) {
             swap(input, 0, --n);
             sink(input, 0, n);
@@ -174,9 +178,17 @@ public class Solution {
         a[i] = a[j];
         a[j] = t;
     }
+
+    //调试时使用,粘贴到各OJ时请注释
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int[] a = new int[]{4, 5, 1, 6, 2, 7, 3, 8};
+        System.out.println(solution.GetLeastNumbers_Solution(a, 8));
+        Arrays.stream(a).forEach(System.out::println);
+    }
 }
 ```
->说明：代码在牛客网的OJ是通过运行的，如果使用其它OJ可能需要更改。另外防止我手滑粘贴错导致不能运行的，原工程在2017-10/coding-interviews/print-list-from-tail-to-head
+>说明：代码在牛客网的OJ是通过运行的，如果使用其它OJ可能需要更改。另外防止我手滑粘贴错导致不能运行的，原工程在2017-10/coding-interviews/least-numbers
 
 >ps: 终于找到一个好的画图工具了..本文中的图都是用```graphviz```画的
 
