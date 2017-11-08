@@ -9,6 +9,7 @@
 - [[剑指offer-003]二维数组中的查找](https://github.com/oneone1995/blog/issues/3)
 - [[剑指offer-005]从尾到头打印链表](https://github.com/oneone1995/blog/issues/5)
 - [[剑指offer-007]用两个栈实现队列](https://github.com/oneone1995/blog/issues/2)
+- [[剑指offer-030]最小的k个数](https://github.com/oneone1995/blog/issues/7)
 
 ### 其他
 ---
