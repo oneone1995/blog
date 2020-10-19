@@ -1,0 +1,84 @@
+apply plugin: 'java'
+
+
+group 'com.dianwoda.open'
+version '1.1-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenLocal()
+    maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+    mavenCentral()
+}
+
+dependencies {
+    compileOnly 'org.projectlombok:lombok:1.18.6'
+    //这个jar是公司内部的工具包，实际上就打了日志
+    compileOnly 'com.dianwoba.monitor:monitor-client:2.5.2'
+
+    //因为版本问题，下面两个包使用compile
+    compile 'io.micrometer:micrometer-core:1.0.1'
+    compile 'com.zaxxer:HikariCP:3.2.0'
+
+    compileOnly 'org.springframework.boot:spring-boot-configuration-processor:1.5.19.RELEASE'
+    compileOnly "org.springframework.boot:spring-boot-starter-log4j2:1.5.19.RELEASE"
+    compileOnly 'org.springframework.boot:spring-boot-autoconfigure:1.5.19.RELEASE'
+
+    testCompile 'com.dianwoba.monitor:monitor-client:2.5.2'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile "org.springframework.boot:spring-boot-starter-test:1.5.19.RELEASE"
+    testCompile "org.springframework.boot:spring-boot-starter-jdbc:1.5.19.RELEASE"
+    testCompile 'mysql:mysql-connector-java:8.0.13'
+}
+
+apply plugin: 'maven'
+apply plugin: 'java'
+
+configurations {
+    deployerJars
+}
+
+dependencies {
+    deployerJars 'org.apache.maven.wagon:wagon-http:2.2'
+}
+
+// sources及javadoc
+javadoc {
+    failOnError = false
+    options {
+        encoding 'UTF-8'
+        charSet 'UTF-8'
+    }
+    options.memberLevel = JavadocMemberLevel.PRIVATE
+}
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+artifacts {
+    archives sourcesJar
+    archives javadocJar
+}
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+
+// 上传 jar 包到自己的 maven 服务器
+uploadArchives {
+    repositories.mavenDeployer {
+        //beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+        configuration = configurations.deployerJars
+        repository(url: "http://nexus.example.com/nexus/content/repositories/snapshots") {
+            authentication(userName: "XXX", password: "XXX")
+        }
+        repository(url: "http://nexus.example.com/nexus/content/repositories/snapshots") {
+            authentication(userName: "XXX", password: "XXX")
+        }
+    }
+}
