@@ -22,6 +22,7 @@
 ## 读书笔记
 
 - [[Java8实战读书笔记-001] 从匿名内部类与策略模式到Java8的Lambda](https://github.com/oneone1995/blog/issues/8)
+- [MySQL是怎样连接的-笔记(1)](https://github.com/oneone1995/blog/issues/11)
 
 ## 其他
 
