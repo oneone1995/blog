@@ -1,0 +1,5 @@
+rootProject.name = 'mybatis-spring-demo'
+include 'mybatis-without-spring'
+include 'mybatis-with-spring'
+include 'mybatis-mapper'
+include 'mybatis-mapperscan'

@@ -1,0 +1,14 @@
+
+dependencies {
+    compile project(':mybatis-mapper')
+
+    compileOnly 'org.projectlombok:lombok:1.18.16'
+
+    compile group: 'com.h2database', name: 'h2', version: '1.4.200'
+    compile 'org.mybatis:mybatis:3.5.6'
+    compile 'org.mybatis:mybatis-spring:2.0.5'
+    compile 'org.springframework:spring-jdbc:5.2.9.RELEASE'
+    compile 'org.springframework:spring-context:5.2.9.RELEASE'
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}

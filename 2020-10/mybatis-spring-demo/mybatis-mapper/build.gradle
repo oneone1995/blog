@@ -1,0 +1,4 @@
+dependencies {
+    compileOnly 'org.projectlombok:lombok:1.18.16'
+    compile 'org.mybatis:mybatis:3.5.6'
+}
