@@ -33,3 +33,4 @@
 - [Windows Subsystem for Linux使用全记录](https://github.com/oneone1995/blog/issues/6)
 - [从redis实例迁移导致应用无法获得连接简单说说jedis的sentinel机制](https://github.com/oneone1995/blog/issues/9)
 - [数据库连接池初探](https://github.com/oneone1995/blog/issues/10)
+- [从Spring与Mybatis整合看Spring的两个扩展点](https://github.com/oneone1995/blog/issues/12)
