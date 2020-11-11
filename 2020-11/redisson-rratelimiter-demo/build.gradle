@@ -1,0 +1,19 @@
+plugins {
+    id 'java'
+}
+
+group 'com.github.oneone1995.demo'
+version '1.0-SNAPSHOT'
+
+repositories {
+    maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.redisson:redisson:3.13.6'
+
+    compile 'ch.qos.logback:logback-classic:1.2.3'
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
